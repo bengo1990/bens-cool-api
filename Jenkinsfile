@@ -2,6 +2,15 @@ pipeline {
     agent any
 
     stages {
+
+        stage('Clone Repo') {
+            steps {
+                script {
+                    git 'https://github.com/bengo1990/bens-cool-api'
+                }
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 script {
