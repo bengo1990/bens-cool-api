@@ -6,7 +6,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 script {
-                    git 'https://github.com/bengo1990/bens-cool-api.git'
+                    git url: 'https://github.com/bengo1990/bens-cool-api', branch: 'main'
                 }
             }
         }
