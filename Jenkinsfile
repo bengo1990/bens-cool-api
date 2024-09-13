@@ -74,7 +74,7 @@ pipeline {
         stage('Run test') {
             steps {
                 script {
-                    sh "bzt stepping.yml"
+                    bzt "stepping.yml"
                 }
             }
         }
