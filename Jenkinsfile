@@ -41,8 +41,6 @@ pipeline {
             }
         }
 
-
-
         stage('Get config file') {
             steps {
                 script {
