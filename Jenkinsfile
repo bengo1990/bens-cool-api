@@ -32,28 +32,28 @@ pipeline {
             }
         }
 
-        stage('Setup Virtual Environment') {
-            steps {
-                script {
-                    // Navigate to workspace
-                    dir('/var/lib/jenkins/workspace/jenkins-docker-test') {
-                        // Create and activate virtual environment
-                        sh '''
-                        pip install bzt
-                        '''
-                    }
-                }
-            }
-        }
-
-        // stage('Setup Taurus') {
+        // stage('Setup Virtual Environment') {
         //     steps {
         //         script {
-        //             sh "sudo pip install bzt"
-        //             // sh "pip install virtualenv"
+        //             // Navigate to workspace
+        //             dir('/var/lib/jenkins/workspace/jenkins-docker-test') {
+        //                 // Create and activate virtual environment
+        //                 sh '''
+        //                 pip install bzt
+        //                 '''
+        //             }
         //         }
         //     }
         // }
+
+        stage('Setup Taurus') {
+            steps {
+                script {
+                    sh "pip install bzt"
+                    sh "pip install virtualenv"
+                }
+            }
+        }
 
         stage('Taurus test') {
             steps {
