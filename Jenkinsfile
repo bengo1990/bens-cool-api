@@ -49,8 +49,8 @@ pipeline {
         stage('Setup Taurus') {
             steps {
                 script {
-                    sh "pip install bzt --target /var/lib/jenkins/workspace/jenkins-docker-test"
-                    sh "pip install virtualenv --target /var/lib/jenkins/workspace/jenkins-docker-test"
+                    sh "sudo pip install bzt --target /var/lib/jenkins/workspace/jenkins-docker-test"
+                    sh "sudo pip install virtualenv --target /var/lib/jenkins/workspace/jenkins-docker-test"
                 }
             }
         }
