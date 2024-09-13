@@ -2,6 +2,10 @@ pipeline {
     agent any
 
     stages {
+        options {
+            // Clean the workspace before starting the build
+            cleanWs()
+        }
 
         stage('Clone Repo') {
             steps {
