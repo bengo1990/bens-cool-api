@@ -16,7 +16,7 @@ pipeline {
                 script {
                     // Build the Docker image
                     echo "Building Docker image..."
-                    sh 'which docker'
+                    // sh 'which docker'
                     sh 'docker build -t flask-hello-world .'
                 }
             }
