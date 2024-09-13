@@ -2,10 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean Workspace') {
-            // Clean the workspace before starting the build
-            cleanWs()
-        }
 
         stage('Clone Repo') {
             steps {
@@ -47,6 +43,8 @@ pipeline {
                         wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.zip
                         unzip apache-jmeter-5.6.3.zip
                     fi
+
+                    rm -rf results/*
 
                     # Run JMeter test plan
                     apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
