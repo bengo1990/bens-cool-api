@@ -55,6 +55,14 @@ pipeline {
         //     }
         // }
 
+        stage('Taurus test') {
+            steps {
+                script {
+                    sh "wget https://raw.githubusercontent.com/Blazemeter/taurus/master/examples/jmeter/stepping.yml"
+                }
+            }
+        }
+
         stage('Get config file') {
             steps {
                 script {
@@ -66,7 +74,7 @@ pipeline {
         stage('Run test') {
             steps {
                 script {
-                    bzt "stepping.yml"
+                    sh "bzt stepping.yml"
                 }
             }
         }
