@@ -67,12 +67,12 @@ pipeline {
     post {
         success {
             echo 'Pipeline succeeded!'
-            docker rm -f flask-hello-world
+            sh 'docker rm -f flask-hello-world'
             cleanWs()
         }
         failure {
             echo 'Pipeline failed!'
-            docker rm -f flask-hello-world
+            sh 'docker rm -f flask-hello-world'
             cleanWs()
         }
         // always {
