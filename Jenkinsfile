@@ -48,7 +48,7 @@ pipeline {
                     rm -rf results/*
 
                     # Run JMeter test plan     
-                    apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results_${timestamp}.jtl -e -o results_${timestamp}"
+                    apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results_${timestamp}.jtl -e -o results_${timestamp}
                     '''
                     //apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
                 }
