@@ -39,9 +39,6 @@ pipeline {
                     dir('/var/lib/jenkins/workspace/jenkins-docker-test') {
                         // Create and activate virtual environment
                         sh '''
-                        python3 -m venv venv
-                        source venv/bin/activate
-                        pip install virtualenv
                         pip install bzt
                         '''
                     }
