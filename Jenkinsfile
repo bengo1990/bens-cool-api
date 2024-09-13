@@ -32,6 +32,17 @@ pipeline {
             }
         }
 
+        stage('Setup Taurus') {
+            steps {
+                script {
+                    sh "pip install bzt"
+                    sh "pip install virtualenv"
+                }
+            }
+        }
+
+
+
         stage('Get config file') {
             steps {
                 script {
