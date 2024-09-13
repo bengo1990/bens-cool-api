@@ -37,6 +37,7 @@ pipeline {
                 script {
                     // Run the JMeter test
                     echo "Running JMeter tests..."
+                    def timestamp = sh(script: 'date +%Y%m%d%H%M%S', returnStdout: true).trim()
                     sh '''
                     # Download JMeter if not already available
                     if [ ! -f apache-jmeter-5.6.3.zip ]; then
@@ -46,9 +47,10 @@ pipeline {
 
                     rm -rf results/*
 
-                    # Run JMeter test plan
-                    apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
+                    # Run JMeter test plan     
+                    apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results_${timestamp}.jtl -e -o results_${timestamp}"
                     '''
+                    //apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
                 }
             }
         }
