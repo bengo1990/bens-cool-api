@@ -65,18 +65,28 @@ pipeline {
     }
 
     post {
-        always {
-            // Archive the test results
-            archiveArtifacts artifacts: 'results/**', allowEmptyArchive: true
-            // Publish the HTML report
-            publishHTML(target: [
-                allowMissing: true,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'results',
-                reportFiles: 'index.html',
-                reportName: 'JMeter Test Report'
-            ])
+        success {
+            echo 'Pipeline succeeded!'
+            docker rm -f flask-hello-world
+            cleanWs()
         }
+        failure {
+            echo 'Pipeline failed!'
+            docker rm -f flask-hello-world
+            cleanWs()
+        }
+        // always {
+        //     // Archive the test results
+        //     archiveArtifacts artifacts: 'results/**', allowEmptyArchive: true
+        //     // Publish the HTML report
+        //     publishHTML(target: [
+        //         allowMissing: true,
+        //         alwaysLinkToLastBuild: true,
+        //         keepAll: true,
+        //         reportDir: 'results',
+        //         reportFiles: 'index.html',
+        //         reportName: 'JMeter Test Report'
+        //     ])
+        // }
     }
 }
