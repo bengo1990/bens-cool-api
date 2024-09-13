@@ -31,13 +31,21 @@ pipeline {
                 }
             }
         }
-    
-        stage('get config file') {
-                sh "wget https://raw.githubusercontent.com/Blazemeter/taurus/master/examples/jmeter/stepping.yml"
+
+        stage('Get config file') {
+            steps {
+                script {
+                    sh "wget https://raw.githubusercontent.com/Blazemeter/taurus/master/examples/jmeter/stepping.yml"
+                }
+            }
         }
-        
-        stage("run test") {
-            bzt "stepping.yml"
+
+        stage('Run test') {
+            steps {
+                script {
+                    bzt "stepping.yml"
+                }
+            }
         }
 
         stage('JMeter Test') {
