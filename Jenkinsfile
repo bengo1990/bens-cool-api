@@ -70,12 +70,12 @@ pipeline {
         success {
             echo 'Pipeline succeeded!'
             sh 'docker rm -f flask-hello-world'
-            cleanWs()
+            // cleanWs()
         }
         failure {
             echo 'Pipeline failed!'
             sh 'docker rm -f flask-hello-world'
-            cleanWs()
+            // cleanWs()
         }
         // always {
         //     // Archive the test results
