@@ -31,8 +31,6 @@ pipeline {
                 }
             }
         }
-
-            }
     
         stage('get config file') {
                 sh "wget https://raw.githubusercontent.com/Blazemeter/taurus/master/examples/jmeter/stepping.yml"
