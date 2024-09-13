@@ -46,14 +46,16 @@ pipeline {
         //     }
         // }
 
-        stage('Setup Taurus') {
-            steps {
-                script {
-                    sh "sudo pip install bzt --target /var/lib/jenkins/workspace/jenkins-docker-test"
-                    sh "sudo pip install virtualenv --target /var/lib/jenkins/workspace/jenkins-docker-test"
-                }
-            }
-        }
+        // stage('Setup Taurus') {
+        //     steps {
+        //         script {
+        //             sh '''
+        //             sudo pip install bzt
+        //             sudo pip install virtualenv
+        //             '''
+        //         }
+        //     }
+        // }
 
         stage('Taurus test') {
             steps {
@@ -74,6 +76,8 @@ pipeline {
         stage('Run test') {
             steps {
                 script {
+                    sh "sudo pip install bzt"
+                    sh "sudo pip install virtualenv"
                     bzt "stepping.yml"
                 }
             }
