@@ -39,13 +39,13 @@ pipeline {
                     echo "Running JMeter tests..."
                     sh '''
                     # Download JMeter if not already available
-                    if [ ! -f apache-jmeter-5.5.zip ]; then
-                        wget https://downloads.apache.org//jmeter/binaries/apache-jmeter-5.5.zip
-                        unzip apache-jmeter-5.5.zip
+                    if [ ! -f apache-jmeter-5.6.3.zip ]; then
+                        wget https://downloads.apache.org/jmeter/binaries/apache-jmeter-5.6.3.zip
+                        unzip apache-jmeter-5.6.3.zip
                     fi
 
-                    # Run JMeter test plan (assuming you have a JMeter test plan saved as 'test_plan.jmx')
-                    apache-jmeter-5.5/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
+                    # Run JMeter test plan
+                    apache-jmeter-5.6.3/bin/jmeter -n -t test_plan.jmx -l results.jtl -e -o results
                     '''
                 }
             }
