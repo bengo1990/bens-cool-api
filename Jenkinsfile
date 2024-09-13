@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        options {
+        stage('Clean Workspace') {
             // Clean the workspace before starting the build
             cleanWs()
         }
